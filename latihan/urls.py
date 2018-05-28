@@ -25,7 +25,8 @@ urlpatterns = [
     path('post/create/', post_create),
     url(r'(?P<id>\d+)/$', post_detail, name="detail"),
     # url(r'^post/detail/(?P<id>\d+)/$', post_detail),
-    path('post/update/', post_update),
+    # path('post/update/', post_update),
+    url(r'(?P<id>\d+)/edit/$', post_update, name="update"),    
     path('post/delete/', post_delete),    
     
 ]
