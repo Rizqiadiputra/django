@@ -1,9 +1,14 @@
-{% comment %} {% extends "base.html" %} {% endcomment %}
+{% extends "base.html" %}
 
-{% comment %} {% block content %} {% endcomment %}
-<h1>{{title}}</h1>
-{% comment %} {{object_list}} {% endcomment %}
-{{ instance.title }}<br/>
-{{ instance.content }}<br/>
+{% block head_title %}
+{{instance.title}} | {{block.super }}{% endblock head_title %}
+{% block content %}
+<div class="col-sm-6 col-sm-offset-3">
+    {% if instance.image %}
+    <img src="{{ instance.image.url }}" class="img-responsive"/>    
+    {% endif %}
+<h1>{{title}} <small>{{ instance.timestamp }}</small></h1>
+{{ instance.content | linebreaks }}<br/>
 {{ instance.id }}<br/>
-{% comment %} {% endblock content %} {% endcomment %}
+</div>
+{% endblock content %}
